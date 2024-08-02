@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rock, Paper, Scissors</title>
+    </head>
+    <body>
+        <script>
+            let humanScore = 0;
+            let computerScore = 0;
+
+            function getHumanChoice() {
+                let choice;
+                while (1) {
+                    choice = window.prompt("Please enter: rock, paper, or scissors").toLowerCase(); 
+                    // while(choice != "rock" || choice != "paper" || choice != "scissors") {
+                    if (choice == "rock" || choice == "paper" || choice == "scissors") {
+                        break;
+                    }
+                }
+                return choice;
+            }
+
+            function getComputerChoice() {
+                let choice = Math.floor(Math.random() * 3);
+                switch (choice) {
+                    case 0:
+                        return "rock";
+                        break;
+                    case 1:
+                        return "paper";
+                        break;
+                    case 2:
+                        return "scissors";
+                        break;
+                }
+            }
+
+            function playRound(humanChoice, computerChoice){
+                if (humanChoice == computerChoice) {
+                    console.log("Draw!")
+                }  else if (humanChoice == "paper" && computerChoice == "rock") {
+                    humanScore++
+                    console.log(`You win! ${humanChoice} beats ${computerChoice}!`)
+                }  else if (humanChoice == "rock" && computerChoice == "scissors") {
+                    humanScore++
+                    console.log(`You win! ${humanChoice} beats ${computerChoice}!`)
+                }  else if (humanChoice == "scissors" && computerChoice == "paper") {
+                    humanScore++
+                    console.log(`You win! ${humanChoice} beats ${computerChoice}!`)
+                }  else if (humanChoice == "rock" && computerChoice == "paper") {
+                    computerScore++
+                    console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
+                }  else if (humanChoice == "paper" && computerChoice == "scissors") {
+                    computerScore++
+                    console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
+                }  else if (humanChoice == "scissors" && computerChoice == "rock") {
+                    computerScore++
+                    console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
+                } 
+            }
+
+            for (let i = 0; i < 5; i++) {
+                let humanSelection = getHumanChoice();
+                let computerSelection = getComputerChoice();
+                playRound(humanSelection, computerSelection);
+            }
+            if (humanScore > computerScore) {
+                console.log("You win "+humanScore+"-"+computerScore+"!");
+            }  else if (humanScore < computerScore) {
+                console.log("You lose "+humanScore+"-"+computerScore+":-(");
+            }  else {
+                console.log("Draw "+humanScore+"-"+computerScore)
+            }
+        </script>
+    </body>
+</html>
