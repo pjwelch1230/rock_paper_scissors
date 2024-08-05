@@ -75,7 +75,7 @@
                         playRound("scissors", computerSelection);
                         break;
                 }
-                score.textContent = `${humanScore}-${computerScore}`;
+                //score.textContent = `${humanScore}-${computerScore}`;
                 if (humanScore === 5) {
                     alert(`You win ${humanScore}-${computerScore}!`);
                     humanScore = 0;
@@ -85,6 +85,7 @@
                     humanScore = 0;
                     computerScore = 0;
                 }
+                score.textContent = `${humanScore}-${computerScore}`;
             });
         </script>
     </body>
