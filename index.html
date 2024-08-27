@@ -2,20 +2,34 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Rock, Paper, Scissors</title>
+        <title>Rock! Paper! Scissors!</title>
+        <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <button id="r">ROCK</button>
-        <button id="p">PAPER</button>
-        <button id="s">SCISSORS</button>
-        <div id="result"></div>
-        <div id="score"></div>
+        <div class="title">
+            Rock! Paper! Scissors!
+        </div>
+        <div class="button-div">
+            <button type="button">
+                <img src="./assets/rock.png" alt="rock" id="r" class="bg-img">
+            </button>
+            <button type="button">
+                <img src="./assets/paper.png" alt="paper" id="p" class="bg-img">
+            </button>
+            <button type="button">
+                <img src="./assets/scissors.png" alt="scissors" id="s" class="bg-img">
+            </button>
+        </div>
+        <div class="bottom">
+            <div id="result"></div>
+            <div id="score"></div>
+        </div>
         <script>
             let humanScore = 0;
             let computerScore = 0;
             
             const result = document.querySelector("#result");
-            result.textContent = "Press a button to begin play";
+            result.textContent = "PRESS A BUTTON TO BEGIN";
 
             const score = document.querySelector("#score"); 
             score.textContent = `${humanScore}-${computerScore}`;
@@ -24,13 +38,13 @@
                 let choice = Math.floor(Math.random() * 3);
                 switch (choice) {
                     case 0:
-                        return "rock";
+                        return "Rock";
                         break;
                     case 1:
-                        return "paper";
+                        return "Paper";
                         break;
                     case 2:
-                        return "scissors";
+                        return "Scissors";
                         break;
                 }
             }
@@ -38,22 +52,22 @@
             function playRound(humanChoice, computerChoice){
                 if (humanChoice == computerChoice) {
                     result.textContent="Draw!";
-                }  else if (humanChoice == "paper" && computerChoice == "rock") {
+                }  else if (humanChoice == "Paper" && computerChoice == "Rock") {
                     humanScore++
                     result.textContent=`You win! ${humanChoice} beats ${computerChoice}!`;
-                }  else if (humanChoice == "rock" && computerChoice == "scissors") {
+                }  else if (humanChoice == "Rock" && computerChoice == "Scissors") {
                     humanScore++
                     result.textContent=`You win! ${humanChoice} beats ${computerChoice}!`;
-                }  else if (humanChoice == "scissors" && computerChoice == "paper") {
+                }  else if (humanChoice == "Scissors" && computerChoice == "Paper") {
                     humanScore++
                     result.textContent=`You win! ${humanChoice} beats ${computerChoice}!`;
-                }  else if (humanChoice == "rock" && computerChoice == "paper") {
+                }  else if (humanChoice == "Rock" && computerChoice == "Paper") {
                     computerScore++
                     result.textContent=`You lose! ${computerChoice} beats ${humanChoice}`;
-                }  else if (humanChoice == "paper" && computerChoice == "scissors") {
+                }  else if (humanChoice == "Paper" && computerChoice == "Scissors") {
                     computerScore++
                     result.textContent=`You lose! ${computerChoice} beats ${humanChoice}`;
-                }  else if (humanChoice == "scissors" && computerChoice == "rock") {
+                }  else if (humanChoice == "Scissors" && computerChoice == "Rock") {
                     computerScore++
                     result.textContent=`You lose! ${computerChoice} beats ${humanChoice}`;
                 } 
@@ -64,26 +78,28 @@
                 switch(target.id) {
                     case 'r':
                         computerSelection = getComputerChoice();
-                        playRound("rock", computerSelection);
+                        playRound("Rock", computerSelection);
                         break;
                     case 'p':
                         computerSelection = getComputerChoice();
-                        playRound("paper", computerSelection);
+                        playRound("Paper", computerSelection);
                         break;
                     case 's':
                         computerSelection = getComputerChoice();
-                        playRound("scissors", computerSelection);
+                        playRound("Scissors", computerSelection);
                         break;
                 }
                 //score.textContent = `${humanScore}-${computerScore}`;
-                if (humanScore === 5) {
+                if (humanScore === 3) {
                     alert(`You win ${humanScore}-${computerScore}!`);
                     humanScore = 0;
                     computerScore = 0;
-                }  else if (computerScore === 5) {
+                    result.textContent = "PRESS A BUTTON TO BEGIN";
+                }  else if (computerScore === 3) {
                     alert(`You lose ${humanScore}-${computerScore}!`);
                     humanScore = 0;
                     computerScore = 0;
+                    result.textContent = "PRESS A BUTTON TO BEGIN";
                 }
                 score.textContent = `${humanScore}-${computerScore}`;
             });
