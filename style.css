@@ -1,6 +1,7 @@
 body, html {
     height: 100%;
     width: 100%;
+    margin: 0;
 }
 
 .title {
@@ -15,15 +16,15 @@ body, html {
     font-family: 'Proxima Nova', 'Roboto', sans-serif;
     color: white;
     padding: 2% 0;
-    margin: -8px -8px;
+    /* margin: -8px -8px; */
     margin-bottom: 0px;
 }
 
 .bg-img {
     z-index: -1;
     border-radius: 10%;
-    max-width: 100%;
-    height: auto;
+    /* max-width: 100%; */
+    /* height: auto; */
 }
 
 button {
@@ -37,7 +38,7 @@ button {
 .button-div {
     display: flex;
     flex: 2 0 0;
-    margin: 0 -8px;
+    /* margin: 0 -8px; */
     padding: 8% 0;
     justify-content: space-evenly;
     align-items: center;
@@ -55,7 +56,7 @@ button {
     font-family: 'Proxima Nova', 'Roboto', sans-serif;
     color: white;
     padding: 2% 0;
-    margin: -8px -8px;
+    /* margin: -8px -8px; */
 }
 
 #score {
